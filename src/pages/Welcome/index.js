@@ -5,7 +5,7 @@ import BackgroundLogo from '~/components/backgroundLogo';
 import SearchField from '~/components/searchField';
 import Types from '~/components/Types';
 
-export default function Welcome() {
+export default function Welcome({ navigation }) {
   return (
     <BackgroundLogo>
       <View style={styles.containerTitle}>
@@ -22,12 +22,7 @@ export default function Welcome() {
         />
       </View>
       <View style={styles.category}>
-        <Types color="#6af3ca" title="Pokedex" />
-        <Types color="#fa6555" title="Movimentos" />
-        <Types color="#429bed" title="Habilidades" />
-        <Types color="#f7c747" title="Itens" />
-        <Types color="#9f5bba" title="Localização" />
-        <Types color="#b1736c" title="Tipos" />
+        <Types navigation={navigation} />
       </View>
     </BackgroundLogo>
   );

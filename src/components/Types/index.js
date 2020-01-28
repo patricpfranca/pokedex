@@ -3,21 +3,30 @@ import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
 
 const substract = require('../../../assets/subtract_types.png');
 
-export default function Types({ title, color }) {
-  return (
-    <TouchableOpacity>
+const categorys = [
+  { title: 'Pokedex', color: '#6af3ca', url: 'Pokedex' },
+  { title: 'Movimentos', color: '#fa6555', url: 'Movimentos' },
+  { title: 'Habilidades', color: '#429bed', url: 'Habilidades' },
+  { title: 'Itens', color: '#f7c747', url: 'Itens' },
+  { title: 'Localização', color: '#9f5bba', url: 'Localizacao' },
+  { title: 'Tipos', color: '#b1736c', url: 'Tipos' },
+];
+
+export default function Types({ navigation }) {
+  return categorys.map(category => (
+    <TouchableOpacity onPress={() => navigation.navigate(`${category.url}`)}>
       <View
         style={[
           styles.container,
-          { backgroundColor: color, shadowColor: color },
+          { backgroundColor: category.color, shadowColor: category.color },
         ]}>
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title}>{category.title}</Text>
         <View style={styles.containerLogo}>
           <Image style={styles.logo} source={substract} />
         </View>
       </View>
     </TouchableOpacity>
-  );
+  ));
 }
 
 const styles = StyleSheet.create({
