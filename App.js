@@ -24,8 +24,9 @@ export default function App() {
   }
 
   return (
-    <Routes>
-      <StatusBar barStyle="dark-content" />
-    </Routes>
+    <>
+      <StatusBar translucent barStyle="dark-content" />
+      <Routes />
+    </>
   );
 }
