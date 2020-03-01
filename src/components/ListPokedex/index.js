@@ -12,7 +12,7 @@ export default function ListPokedex({ data, navigation }) {
     <TouchableWithoutFeedback>
       <View style={styles.cards}>
         <View style={styles.number}>
-          <Text>{data.id}</Text>
+          <Text style={styles.txtId}># {data.id}</Text>
         </View>
         <View style={styles.boxName}>
           <Text style={styles.name}>{data.name}</Text>
@@ -26,7 +26,12 @@ export default function ListPokedex({ data, navigation }) {
           </View>
         </View>
         <View style={styles.boxImage}>
-          <Image style={styles.image} source={{ uri: data.image }} />
+          <Image
+            style={styles.image}
+            source={{
+              uri: `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${data.id}.png`,
+            }}
+          />
         </View>
       </View>
     </TouchableWithoutFeedback>
@@ -99,14 +104,20 @@ const styles = StyleSheet.create({
     width: 76,
     height: 71,
     right: 4,
-    top: 15,
+    top: 40,
+    bottom: 3,
     alignItems: 'center',
     alignSelf: 'flex-end',
     justifyContent: 'flex-end',
     flexDirection: 'column-reverse',
   },
   image: {
-    width: 100,
-    height: 100,
+    width: 76,
+    height: 71,
+  },
+  txtId: {
+    fontFamily: 'roboto-regular',
+    fontSize: 14,
+    lineHeight: 14,
   },
 });
