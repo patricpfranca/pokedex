@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     color: '#303943',
+    fontFamily: 'roboto-regular',
   },
   list: {
     alignItems: 'flex-start',

@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     color: '#303943',
     alignItems: 'center',
     fontWeight: 'bold',
+    fontFamily: 'roboto-regular',
   },
   containerTitle: {
     lineHeight: 42,

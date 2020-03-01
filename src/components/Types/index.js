@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     fontSize: 16,
+    fontFamily: 'roboto-regular',
     fontWeight: 'bold',
   },
 });

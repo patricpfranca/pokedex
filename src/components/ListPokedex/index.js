@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     color: '#fff',
     fontWeight: 'bold',
+    fontFamily: 'roboto-regular',
   },
   type: {
     width: 49,
@@ -76,6 +77,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 28,
     color: '#000',
+    fontFamily: 'roboto-regular',
   },
   number: {
     position: 'absolute',
@@ -90,6 +92,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 14,
     fontWeight: 'bold',
+    fontFamily: 'roboto-regular',
   },
   boxImage: {
     position: 'absolute',
