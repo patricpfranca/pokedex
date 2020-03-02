@@ -1,57 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FlatList, View, Text, StyleSheet } from 'react-native';
 
 import BackgroundLogo from '~/components/backgroundLogo';
 import ListPokedex from '~/components/ListPokedex';
-
-const data = [
-  {
-    id: '001',
-    name: 'Bulbasaur',
-    poison: 'Grass',
-    image:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
-  },
-  {
-    id: '002',
-    name: 'Charizard',
-    poison: 'Grass',
-    image:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png',
-  },
-  {
-    id: '003',
-    name: 'Pikachu',
-    poison: 'Grass',
-    image:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png',
-  },
-  {
-    id: '004',
-    name: 'Squirtle',
-    poison: 'Grass',
-    image:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png',
-  },
-  {
-    id: '004',
-    name: 'Snorlax',
-    poison: 'Grass',
-    image:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png',
-  },
-];
+import PokemonService from '~/services/Pokemon/PokemonService';
 
 export default function Pokedex({ navigation }) {
+  const [pokemon, setPokemon] = useState([]);
+  const [index, setIndex] = useState(10);
+
+  async function loadPokemons() {
+    const response = await PokemonService.index(index);
+
+    setPokemon(response);
+  }
+
+  useEffect(() => {
+    loadPokemons();
+  }, []);
+
   return (
     <BackgroundLogo>
       <View style={styles.containerTitle}>
         <Text style={styles.title}>Pokedex</Text>
       </View>
-      <View style={styles.container}>
+      <View style={styles.list}>
         <FlatList
           showsVerticalScrollIndicator={false}
-          data={data}
+          data={pokemon}
           numColumns={2}
           keyExtractor={item => String(item.id)}
           renderItem={({ item }) => (
@@ -81,11 +57,7 @@ const styles = StyleSheet.create({
   },
   list: {
     alignItems: 'flex-start',
-  },
-  container: {
-    position: 'absolute',
-    alignItems: 'flex-start',
-    top: 175,
     alignSelf: 'center',
+    flex: 1,
   },
 });

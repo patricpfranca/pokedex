@@ -4,17 +4,19 @@ import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
 const substract = require('../../../assets/subtract_types.png');
 
 const categorys = [
-  { title: 'Pokedex', color: '#6af3ca', url: 'Pokedex' },
-  { title: 'Movimentos', color: '#fa6555', url: 'Movimentos' },
-  { title: 'Habilidades', color: '#429bed', url: 'Habilidades' },
-  { title: 'Itens', color: '#f7c747', url: 'Itens' },
-  { title: 'Localização', color: '#9f5bba', url: 'Localizacao' },
-  { title: 'Tipos', color: '#b1736c', url: 'Tipos' },
+  { title: 'Pokedex', color: '#6af3ca', url: 'Pokedex', id: 1 },
+  { title: 'Movimentos', color: '#fa6555', url: 'Movimentos', id: 2 },
+  { title: 'Habilidades', color: '#429bed', url: 'Habilidades', id: 3 },
+  { title: 'Itens', color: '#f7c747', url: 'Itens', id: 4 },
+  { title: 'Localização', color: '#9f5bba', url: 'Localizacao', id: 5 },
+  { title: 'Tipos', color: '#b1736c', url: 'Tipos', id: 6 },
 ];
 
 export default function Types({ navigation }) {
   return categorys.map(category => (
-    <TouchableOpacity onPress={() => navigation.navigate(`${category.url}`)}>
+    <TouchableOpacity
+      key={category.id}
+      onPress={() => navigation.navigate(`${category.url}`)}>
       <View
         style={[
           styles.container,

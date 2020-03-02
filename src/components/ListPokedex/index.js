@@ -7,29 +7,32 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 
+import { padDigits } from '~/config/utils';
+
 export default function ListPokedex({ data, navigation }) {
   return (
     <TouchableWithoutFeedback>
       <View style={styles.cards}>
         <View style={styles.number}>
-          <Text style={styles.txtId}># {data.id}</Text>
+          <Text style={styles.txtId}>#{padDigits(data.id)}</Text>
         </View>
         <View style={styles.boxName}>
           <Text style={styles.name}>{data.name}</Text>
         </View>
         <View style={styles.type}>
-          <View style={styles.typeBag}>
-            <Text style={styles.txtType}>{data.poison}</Text>
-          </View>
-          <View style={styles.typeBag}>
-            <Text style={styles.txtType}>{data.poison}</Text>
-          </View>
+          {data.types.map(types => (
+            <View style={styles.typeBag} key={types.type.slot}>
+              <Text style={styles.txtType}>{types.type.name}</Text>
+            </View>
+          ))}
         </View>
         <View style={styles.boxImage}>
           <Image
             style={styles.image}
             source={{
-              uri: `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${data.id}.png`,
+              uri: `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${padDigits(
+                data.id
+              )}.png`,
             }}
           />
         </View>
@@ -61,6 +64,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
     fontFamily: 'roboto-regular',
+    textTransform: 'capitalize',
   },
   type: {
     width: 49,
@@ -72,17 +76,18 @@ const styles = StyleSheet.create({
     height: 17,
     opacity: 0.4,
     marginBottom: 4,
-    backgroundColor: '#fff',
     borderRadius: 38,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#fff',
   },
   txtType: {
     fontSize: 12,
     lineHeight: 28,
     color: '#000',
     fontFamily: 'roboto-regular',
+    textTransform: 'capitalize',
   },
   number: {
     position: 'absolute',
