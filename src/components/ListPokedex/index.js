@@ -1,18 +1,14 @@
 import React from 'react';
-import {
-  Image,
-  View,
-  StyleSheet,
-  Text,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import { Image, View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 import { padDigits } from '~/config/utils';
+import BadgeTypes from '../BadgeTypes';
 
 export default function ListPokedex({ data, navigation }) {
   return (
-    <TouchableWithoutFeedback>
-      <View style={styles.cards}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate('About', { pokemon: data })}>
+      <View style={styles.cards} key={data.id}>
         <View style={styles.number}>
           <Text style={styles.txtId}>#{padDigits(data.id)}</Text>
         </View>
@@ -21,9 +17,11 @@ export default function ListPokedex({ data, navigation }) {
         </View>
         <View style={styles.type}>
           {data.types.map(types => (
-            <View style={styles.typeBag} key={types.type.slot}>
-              <Text style={styles.txtType}>{types.type.name}</Text>
-            </View>
+            <BadgeTypes
+              value={types.type.name}
+              size="xm"
+              key={types.type.slot}
+            />
           ))}
         </View>
         <View style={styles.boxImage}>
@@ -37,7 +35,7 @@ export default function ListPokedex({ data, navigation }) {
           />
         </View>
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableOpacity>
   );
 }
 

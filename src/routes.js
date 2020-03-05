@@ -1,13 +1,9 @@
-import React from 'react';
-import { Image, TouchableOpacity } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import Welcome from './pages/Welcome';
 import Pokedex from './pages/Pokedex';
-
-const back = require('../assets/back.png');
-const list = require('../assets/list.png');
+import About from './pages/About';
 
 const Routes = createAppContainer(
   createStackNavigator(
@@ -20,6 +16,12 @@ const Routes = createAppContainer(
       },
       Pokedex: {
         screen: Pokedex,
+        navigationOptions: {
+          headerBackTitleVisible: false,
+        },
+      },
+      About: {
+        screen: About,
         navigationOptions: {
           headerBackTitleVisible: false,
         },
