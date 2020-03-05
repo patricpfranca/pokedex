@@ -3,13 +3,13 @@ import { View, SafeAreaView, StyleSheet, Text, Image } from 'react-native';
 
 import { padDigits } from '~/config/utils';
 import BadgeTypes from '~/components/BadgeTypes';
+import BackgroundLogo from '~/components/BackgroundLogo';
 
 export default function About({ navigation }) {
   const pokemonDetail = navigation.getParam('pokemon');
 
   return (
-    <SafeAreaView style={styles.container}>
-      {console.log(pokemonDetail)}
+    <BackgroundLogo data="detail">
       <View style={{ marginTop: 104, marginHorizontal: 26 }}>
         <View style={styles.info}>
           <Text style={styles.name}>{pokemonDetail.name}</Text>
@@ -38,7 +38,7 @@ export default function About({ navigation }) {
       <View style={styles.content}>
         <Text>123</Text>
       </View>
-    </SafeAreaView>
+    </BackgroundLogo>
   );
 }
 

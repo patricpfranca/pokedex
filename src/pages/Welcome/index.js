@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-import BackgroundLogo from '~/components/backgroundLogo';
+import BackgroundLogo from '~/components/BackgroundLogo';
 import SearchField from '~/components/searchField';
 import Types from '~/components/Types';
 
@@ -13,7 +13,7 @@ export default function Welcome({ navigation }) {
           Que Pokemon você está procurando?
         </Text>
       </View>
-      <View>
+      <View style={{ marginTop: 100 }}>
         <SearchField
           icon="search"
           placeholder="Procure Pokemons"
@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
   },
   containerTitle: {
     lineHeight: 42,
-    position: 'absolute',
     display: 'flex',
     width: 316,
     height: 66,

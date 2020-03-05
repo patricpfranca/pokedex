@@ -4,9 +4,9 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 export default function searchField({ icon, rest }) {
   return (
-    <View style={styles.search}>
+    <View style={styles.search} {...rest}>
       {icon && <MaterialIcons name={icon} size={30} color="#303943" />}
-      <TextInput style={styles.input} {...rest} />
+      <TextInput style={styles.input} />
     </View>
   );
 }
