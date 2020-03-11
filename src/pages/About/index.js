@@ -38,7 +38,7 @@ export default function About({ navigation }) {
           </View>
         </View>
         <View style={styles.content}>
-          <Tabs data={pokemonDetail} />
+          <Tabs details={pokemonDetail} />
         </View>
       </BackgroundLogo>
     </ScrollView>
@@ -81,5 +81,6 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingHorizontal: 27,
+    flex: 1,
   },
 });

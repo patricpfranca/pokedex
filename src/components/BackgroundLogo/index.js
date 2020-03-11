@@ -8,9 +8,8 @@ export default function BackgroundLogo({ children, data }) {
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground
-        source={data === 'detail' ? detail : background}
-        style={{ width: '100%', height: '128%' }}
-        resizeMode="stretch">
+        // source={data === 'detail' ? detail : background}
+        style={{ width: '100%', height: '128%' }}>
         {children}
       </ImageBackground>
     </SafeAreaView>

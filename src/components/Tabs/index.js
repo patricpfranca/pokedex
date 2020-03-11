@@ -7,7 +7,7 @@ import Stats from '~/components/Stats';
 import Evolution from '~/components/Evolution';
 import Moves from '~/components/Moves';
 
-export default function Tabs({ data }) {
+export default function Tabs({ details }) {
   const [index, setIndex] = useState(0);
   const [routes] = useState([
     { key: 'first', title: 'About' },
@@ -17,7 +17,7 @@ export default function Tabs({ data }) {
   ]);
 
   const renderScene = SceneMap({
-    first: () => <About />,
+    first: () => <About data={details} />,
     second: () => <Stats />,
     third: () => <Evolution />,
     fourth: () => <Moves />,
