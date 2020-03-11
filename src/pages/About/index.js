@@ -4,6 +4,7 @@ import { View, StyleSheet, Text, Image, ScrollView } from 'react-native';
 import { padDigits } from '~/config/utils';
 import BadgeTypes from '~/components/BadgeTypes';
 import BackgroundLogo from '~/components/BackgroundLogo';
+import Tabs from '~/components/Tabs';
 
 export default function About({ navigation }) {
   const pokemonDetail = navigation.getParam('pokemon');
@@ -37,7 +38,7 @@ export default function About({ navigation }) {
           </View>
         </View>
         <View style={styles.content}>
-          <Text>123</Text>
+          <Tabs data={pokemonDetail} />
         </View>
       </BackgroundLogo>
     </ScrollView>
@@ -79,6 +80,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   content: {
-    padding: 27,
+    paddingHorizontal: 27,
   },
 });
